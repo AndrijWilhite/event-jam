@@ -29,18 +29,16 @@
           vm.widget.bind(SC.Widget.Events.READY, function() {
             vm.widget.bind(SC.Widget.Events.PLAY, function() {
               vm.widget.getCurrentSound(function(currentSound) {
-                vm.artist=currentSound.user.full_name;
+                vm.artist=currentSound.user.username;
                 console.log(currentSound)
+                callApi();
               });
-              callApi();
+
             });
           });
 
-          vm.changePlaylist= function change(){
-            if(vm.URL){
-              vm.widget.load(vm.URL, {auto_play:true})
-            }
-          }
+
+
 
           vm.getInfo= function info(){
             vm.artist=vm.artist;
@@ -51,4 +49,5 @@
                 vm.URL="";
               };
     }
+
 })();

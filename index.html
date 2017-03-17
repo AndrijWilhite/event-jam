@@ -13,18 +13,34 @@
       <!--SoundCloud Player-->
       <div class="row">
             <div class="col-sm-6">
-              <iframe id ="sc-widget" width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/308235202&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-              <input type="text" placeholder="Enter playlist URL here" ng-model="event.URL">
-              <button type="button" ng-click=event.changePlaylist()>Change Playlist!</button>
+              <iframe id ="sc-widget" width="100%" height="480" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/308235202&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
             </div>
             <div class="col-sm-6">
                 <h1>{{event.artist}}</h1>
-                <button type="button" name="button" ng-click="event.widget.prev()"> Previous</button>
-                <button type="button" name="button" ng-click="event.widget.play()"> PLAY TEST</button>
-                <button type="button" name="button" ng-click="event.widget.next()"> Next</button>
-                <button type="button" name="button" ng-click="scCtrl.widget.getInfo()"> Get Info</button>
+                <div class="btn-group">
+                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.prev()"> Prev</button>
+                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.play()"> Play</button>
+                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.next()"> Next</button>
+                <br><br>
               </div>
-</div>
+            </div>
+
+              <div class="col-sm-4" nopadding>
+                <input type="text" type="text" class="form-control" placeholder="Enter playlist URL here" ng-model="event.URL">
+              </div>
+              <div class="col-sm-2" nopadding>
+                <button type="button" class="btn btn-info" ng-click=event.changePlaylist()>Change Playlist!</button>
+                <br>
+                <br>
+              </div>
+
+              <div>
+                <img src="/img/jamit.png" width="25%" height="25%" style="margin-left: 9.5%; margin-bottom:20px">
+              </div>
+          </div>
+
+
             <!--<button ng-click="event.callEventApi()">test me</button>-->
             <div ng-repeat="event in event.eventData.events.event">
               <!--get info for each event-->
@@ -62,8 +78,8 @@
                                     <tr>
                                     <td>
 
-                                    <button type="button" class="btn btn-info"><a href={{event.url}} target="_blank">More Info</a></button>
-                              
+                                    <a href={{event.url}} target="_blank"><button type="button" class="btn btn-info" name="button">More Info</button></a>
+
                                 </td>
                                 </tr>
                                 </table>

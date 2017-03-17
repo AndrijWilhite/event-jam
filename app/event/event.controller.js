@@ -7,7 +7,7 @@
 
     function event($http, toastr) {
         var vm = this;
-        vm.artist = '';
+        vm.artist = 'Event Jam';
         /*Serch query*/
         function callApi() {
             $http.get('http://api.eventful.com/json/events/search?app_key=Cdn2Q3fskSrMvnMR&keywords=' + vm.artist)

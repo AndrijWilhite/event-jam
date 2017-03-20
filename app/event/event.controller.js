@@ -24,13 +24,13 @@
                     }
                 })
                 .catch(function(error) {
-                    toastr.error('error', "FAIL: Try Entering Something Valid");
+                    toastr.error('error', "FAIL: Check Cross-Origin");
                 });
               }
         //Player
         vm.widgetOptions={auto_play:true, buying:true, liking:true, download:true, sharing:true, show_artwork:true, show_comments:false, show_playcount:true, show_user:true, start_track:0}
 
-        
+
           vm.widgetIframe = document.getElementById('sc-widget');
           vm.widget = SC.Widget(vm.widgetIframe);
 

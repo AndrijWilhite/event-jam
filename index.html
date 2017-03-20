@@ -42,7 +42,22 @@
 
 
             <!--<button ng-click="event.callEventApi()">test me</button>-->
+
+            <div ng-hide=event.found>
+              <div class="col-md-12">
+                  <div class="panel panel-danger top-buffer">
+                      <div class="panel-heading"><h1 style="text-align: center"><i>NO EVENTS FOUND</i></h1></div>
+                </div>
+              </div>
+            </div>
+            <div ng-show=event.found>
+              <div class="col-md-12">
+                  <div class="panel panel-info top-buffer">
+                      <div class="panel-heading"><h1 style="text-align: center"><i>Events Panel</i></h1></div>
+                </div>
+              </div>
             <div ng-repeat="event in event.eventData.events.event">
+
               <!--get info for each event-->
                 <div class="col-md-3">
                     <div class="panel panel-info top-buffer">
@@ -78,7 +93,7 @@
                                     <tr>
                                     <td>
 
-                                    <a href={{event.url}} target="_blank"><button type="button" class="btn btn-info" name="button">More Info</button></a>
+                                    <a href={{event.url}} target="_blank"><button type="button" class="btn btn-info" name="button">More Info</button>
 
                                 </td>
                                 </tr>
@@ -90,7 +105,9 @@
                     </div>
                 </div>
             </div>
+          </div>
             <script src="angular.min.js"></script>
+            <script src="scripts/scwidget.js"></script>
             <script src="app/app.module.js"></script>
             <script src="app/event/event.controller.js"></script>
             <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />

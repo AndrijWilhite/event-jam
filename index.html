@@ -9,91 +9,96 @@
 
 <body>
     <div ng-app="app">
-      <div ng-controller="event as event">
-      <!--SoundCloud Player-->
-      <div class="row">
-            <div class="col-sm-6">
-              <iframe id ="sc-widget" width="100%" height="480" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/308235202&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+        <div ng-controller="event as event">
+            <!--SoundCloud Player-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <iframe id="sc-widget" width="100%" height="480" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/308235202&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
+                </div>
+                <div class="col-sm-6">
+                    <h1>{{event.artist}}</h1>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info" name="button" ng-click="event.widget.prev()"> Prev</button>
+                        <button type="button" class="btn btn-info" name="button" ng-click="event.widget.play()"> Play</button>
+                        <button type="button" class="btn btn-info" name="button" ng-click="event.widget.next()"> Next</button>
+                        <br><br>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" nopadding>
+                    <input type="text" type="text" class="form-control" placeholder="Enter playlist URL here" ng-model="event.URL">
+                </div>
+                <div class="col-sm-2" nopadding>
+                    <button type="button" class="btn btn-info" ng-click=event.changePlaylist()>Change Playlist!</button>
+                    <br>
+                    <br>
+                </div>
+
+                <div>
+                    <img src="/img/jamit.png" width="25%" height="25%" style="margin-left: 9.5%; margin-bottom:20px">
+                </div>
             </div>
-            <div class="col-sm-6">
-                <h1>{{event.artist}}</h1>
-                <div class="btn-group">
-                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.prev()"> Prev</button>
-                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.play()"> Play</button>
-                <button type="button" class="btn btn-info" name="button" ng-click="event.widget.next()"> Next</button>
-                <br><br>
-              </div>
-            </div>
-
-              <div class="col-sm-4" nopadding>
-                <input type="text" type="text" class="form-control" placeholder="Enter playlist URL here" ng-model="event.URL">
-              </div>
-              <div class="col-sm-2" nopadding>
-                <button type="button" class="btn btn-info" ng-click=event.changePlaylist()>Change Playlist!</button>
-                <br>
-                <br>
-              </div>
-
-              <div>
-                <img src="/img/jamit.png" width="25%" height="25%" style="margin-left: 9.5%; margin-bottom:20px">
-              </div>
-          </div>
 
 
             <!--<button ng-click="event.callEventApi()">test me</button>-->
 
             <div ng-hide=event.found>
-              <div class="col-md-12">
-                  <div class="panel panel-danger top-buffer">
-                      <div class="panel-heading"><h1 style="text-align: center"><i>NO EVENTS FOUND</i></h1></div>
+                <div class="col-md-12">
+                    <div class="panel panel-danger top-buffer">
+                        <div class="panel-heading">
+                            <h1 style="text-align: center"><i>NO EVENTS FOUND</i></h1></div>
+                    </div>
                 </div>
-              </div>
             </div>
             <div ng-show=event.found>
-              <div class="col-md-12">
-                  <div class="panel panel-info top-buffer">
-                      <div class="panel-heading"><h1 style="text-align: center"><i>Events Panel</i></h1></div>
-                </div>
-              </div>
-            <div ng-repeat="event in event.eventData.events.event">
-
-              <!--get info for each event-->
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <div class="panel panel-info top-buffer">
-                        <div class="panel-heading">Event Information</div>
-                        <div class="panel-body"style="min-height: 350px; max-height: 350px;">
-                            <div class="form-group">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <h3>{{event.title}}</h3></td>
-                                    </tr>
+                        <div class="panel-heading">
+                            <h1 style="text-align: center"><i>Events Panel</i></h1></div>
+                    </div>
+                </div>
+                <div ng-repeat="event in event.eventData.events.event">
 
-                                </table>
-                                <table>
-                                    <tr>
-                                        <th><h5>Location</h5></th>
+                    <!--get info for each event-->
+                    <div class="col-md-3">
+                        <div class="panel panel-info top-buffer">
+                            <div class="panel-heading">Event Information</div>
+                            <div class="panel-body" style="min-height: 350px; max-height: 350px;">
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <h3>{{event.title}}</h3></td>
+                                        </tr>
 
-                                    </tr>
-                                    <tr>
-                                        <td>{{event.city_name}}</td>
-                                        <td>{{event.region_abbr}}</td>
-                                        <td>{{event.country_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th><h5>Venue</h5></th>
-                                        <th><h5>Start Time</h5></th>
-                                    </tr>
-                                    <tr>
-                                        <td>{{event.venue_name}}</td>
-                                        <td>{{event.start_time}}</td>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <th>
+                                                <h5>Location</h5></th>
 
-                                    </tr>
-                                    <tr>
-                                    <td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{event.city_name}}</td>
+                                            <td>{{event.region_abbr}}</td>
+                                            <td>{{event.country_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <h5>Venue</h5></th>
+                                            <th>
+                                                <h5>Start Time</h5></th>
+                                        </tr>
+                                        <tr>
+                                            <td>{{event.venue_name}}</td>
+                                            <td>{{event.start_time}}</td>
 
-                                    <a href={{event.url}} target="_blank"><button type="button" class="btn btn-info" name="button">More Info</button>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                                <a href={{event.url}} target="_blank"><button type="button" class="btn btn-info" name="button">More Info</button>
 
                                 </td>
                                 </tr>

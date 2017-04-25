@@ -2,7 +2,5 @@
     'use strict';
 
     angular
-        .module('app', ['toastr'
-
-        ]);
+        .module('app', ['toastr']);
 })();
